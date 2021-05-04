@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalogue [
+	<!ELEMENT catalogue (category+)>
+	<!ELEMENT category (subcategory+)>
+	<!ELEMENT subcategory (product+)>
+	<!ELEMENT product (name, price, discount_price?, description, weight,
+	 due_date, image, similar_products)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+	<!ELEMENT discount_price (#PCDATA)>
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT weight (#PCDATA)>
+	<!ELEMENT due_date (#PCDATA)>
+	<!ELEMENT similar_products EMPTY>
+	<!ELEMENT image EMPTY>
+
+	<!ENTITY img_aplle_gr "aplle_gr.jpg">
+  <!ENTITY img_aplle_red "red_apples.jpg">
+	<!ENTITY img_champagne_bez "champagne_bez.jpeg">
+	<!ENTITY img_cola_xanny "cola_xanny.jpg">
+	<!ENTITY img_coca_cola "coca_cola.jpg">
+	<!ENTITY img_fanta "fanta_orange.jpg">
+	<!ENTITY img_lays "lays_salt.jpg">
+	<!ENTITY img_pom-bar "pombar_cheese.jpg">
+
+	<!ATTLIST category name CDATA #REQUIRED>
+	<!ATTLIST subcategory name CDATA #REQUIRED>
+	<!ATTLIST product 	id ID #REQUIRED
+						packaging (pack | bottle | none | single) #REQUIRED
+						available (yes | no) "yes"
+						discount (yes | no) "no">
+	<!ATTLIST weight measurement (gr | L | pieces) #REQUIRED>
+	<!ATTLIST image url ENTITY #REQUIRED>
+	<!ATTLIST similar_products products IDREFS #REQUIRED>
+]>
+<catalogue>
+	<category name="Плодове и зеленчуци">
+		<subcategory name="Плодове">
+			<product id="i2" packaging="none" discount="yes">
+				<name>Зелени ябълки</name>
+				<price>1.99</price>
+				<discount_price>1.69</discount_price>
+				<description>Свежи зелени ябълки. Бългрско производство от село Горно Долно Зеленоябълково.</description>
+				<weight measurement="gr">1000</weight>
+				<due_date>18.01.21</due_date>
+				<image url="&img_aplle_gr;"/>
+				<similar_products products="i3"/>
+			</product>
+			<product id="i3" packaging="none" available="no">
+				<name>Червени ябълки</name>
+				<price>1.89</price>
+				<description>Свежи червени ябълки. Бългрско производство от село Горно Долно Зеленоябълково.</description>
+				<weight measurement="gr">1000</weight>
+				<due_date>18.01.21</due_date>
+				<image url="&img_aplle_red;"/>
+				<similar_products products="i2"/>
+			</product>
+		</subcategory>
+	</category>
+	<category name="Алкохолни и безалкохолни напитки">
+		<subcategory name="Алкохол">
+			<product id="i4" packaging="bottle">
+				<name>Шампанско “Без сълзи“</name>
+				<price>8.89</price>
+				<description>Качествено шампанско от неизмисления български производител “Без сълзи“. Реколта 2004.</description>
+				<weight measurement="L">0.8</weight>
+				<due_date>01.01.28</due_date>
+				<image url="&img_champagne_bez;"/>
+				<similar_products products="i5"/>
+			</product>
+		</subcategory>
+		<subcategory name="Безалкохолни напитки">
+			<product id="i5" packaging="bottle">
+				<name>Кола “Xanny“</name>
+				<price>2.49</price>
+				<description>Кола “Xanny“, произведена в Мексико.</description>
+				<weight measurement="L">2</weight>
+				<due_date>05.05.22</due_date>
+				<image url="&img_cola_xanny;"/>
+				<similar_products products="i4"/>
+			</product>
+    <product id="i6" packaging="bottle">
+				<name>Coca-Cola</name>
+				<price>2</price>
+				<description>Coca-Cola е най-популярната газирана напитка.</description>
+				<weight measurement="L">2L</weight>
+				<due_date>20.05.2021</due_date>
+				<image url="&img_coca_cola;"></image>
+				<similar_products products="i7"></similar_products>
+			</product>
+			<product id="i7" packaging="bottle">
+				<name>Fanta портокал</name>
+				<price>2</price>
+				<description>Fanta е газирана напитка, произведена от Coca-Cola. Има множество вкусове.</description>
+				<weight measurement="L">2L</weight>
+				<due_date>14.06.2021</due_date>
+				<image url="&img_fanta;"></image>
+				<similar_products products="i6"></similar_products>
+			</product>
+		</subcategory>
+	</category>
+	<category name="Снаксове и чипсове">
+		<subcategory name="Чипсове">
+			<product id="i8" packaging="pack">
+				<name>Lay's чипс със сол</name>
+				<price>3</price>
+				<discount_price>2</discount_price>
+				<description>Чипс от картофи със сол</description>
+				<weight measurement="gr">125</weight>
+				<due_date>05.07.2023</due_date>
+				<image url="&img_lays;"></image>
+				<similar_products products="i9"></similar_products>
+			</product>
+		</subcategory>
+		<subcategory name="Снаксове">
+			<product id="i9" packaging="pack" discount="yes">
+				<name>Pom-Bar със сирене</name>
+				<price>1</price>
+				<description>Pom-Bar любим снакс със вкус на сирене.</description>
+				<weight measurement="gr">65</weight>
+				<due_date>01.02.2022</due_date>
+				<image url="&img_pom-bar;"></image>
+				<similar_products products="i8"></similar_products>
+			</product>
+		</subcategory>
+	</category>
+</catalogue>
